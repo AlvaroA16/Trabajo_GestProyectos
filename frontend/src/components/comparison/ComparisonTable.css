@@ -1,0 +1,36 @@
+.comparison-table-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.comparison-table th {
+  background: #1a237e;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.comparison-table td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: top;
+}
+
+.comparison-table__semester {
+  font-weight: 700;
+  color: #1a237e;
+  white-space: nowrap;
+  width: 80px;
+}
+
+.comparison-table ul { margin: 0; padding-left: 1.1rem; }
+.comparison-table li { margin-bottom: 0.2rem; }
+.comparison-table__empty { color: #bdbdbd; }

@@ -1,0 +1,7 @@
+.about-page { max-width: 800px; margin: 0 auto; padding: 2rem; }
+.about-page h1 { font-size: 1.8rem; color: #1a237e; margin-bottom: 1.5rem; }
+.about-page__section { margin-bottom: 2rem; }
+.about-page__section h2 { font-size: 1.2rem; color: #283593; margin-bottom: 0.75rem; }
+.about-page__section p, .about-page__section li { color: #444; line-height: 1.7; }
+.about-page__section ul { padding-left: 1.25rem; }
+.about-page__disclaimer { background: #fff3e0; border-left: 4px solid #e65100; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; }

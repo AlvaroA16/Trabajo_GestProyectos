@@ -1,0 +1,5 @@
+.universities-page { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+.universities-page h1 { font-size: 1.8rem; color: #1a237e; margin-bottom: 1.5rem; }
+.universities-page__filters { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.universities-page__filters select { padding: 0.5rem 1rem; border-radius: 6px; border: 1px solid #ccc; font-size: 0.95rem; }
+.universities-page__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }

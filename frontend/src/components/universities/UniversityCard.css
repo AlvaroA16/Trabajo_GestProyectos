@@ -1,0 +1,32 @@
+.university-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: box-shadow 0.2s;
+}
+
+.university-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+
+.university-card__header { display: flex; justify-content: space-between; align-items: center; }
+
+.university-card__acronym { font-weight: 700; color: #1a237e; font-size: 1rem; }
+
+.university-card__type {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.university-card__type--pública { background: #e3f2fd; color: #1565c0; }
+.university-card__type--privada { background: #fce4ec; color: #880e4f; }
+
+.university-card__name { font-size: 0.95rem; font-weight: 600; color: #212121; margin: 0; }
+.university-card__location { font-size: 0.82rem; color: #757575; }
+.university-card__accreditation { font-size: 0.8rem; color: #388e3c; }
+.university-card__link { margin-top: auto; color: #1a237e; font-weight: 600; text-decoration: none; font-size: 0.9rem; }

@@ -1,0 +1,4 @@
+.careers-page { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+.careers-page h1 { font-size: 1.8rem; color: #1a237e; margin-bottom: 1.5rem; }
+.careers-page__filters select { padding: 0.5rem 1rem; border-radius: 6px; border: 1px solid #ccc; font-size: 0.95rem; margin-bottom: 1.5rem; }
+.careers-page__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
