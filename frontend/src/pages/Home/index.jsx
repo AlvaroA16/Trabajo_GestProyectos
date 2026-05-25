@@ -6,29 +6,42 @@ import './Home.css';
 export default function Home() {
   const navigate = useNavigate();
   const titleRef = useRef(null);
+  const imageColRef = useRef(null);
 
   useEffect(() => {
-    if (!titleRef.current) return;
-    const { chars } = splitText(titleRef.current, { words: false, chars: true });
-    animate(chars, {
-      y: [
-        { to: '-2.75rem', ease: 'outExpo', duration: 500 },
-        { to: 0, ease: 'outBounce', duration: 800, delay: 100 },
-      ],
-      rotate: {
-        from: '-1turn',
-        delay: 0,
-      },
-      delay: stagger(50),
-      ease: 'inOutCirc',
-      loopDelay: 2000,
-      loop: false,
-    });
+    // Entrada de la imagen: slide desde la izquierda + fade
+    if (imageColRef.current) {
+      animate(imageColRef.current, {
+        opacity: [0, 1],
+        translateX: ['-60px', '0px'],
+        duration: 1000,
+        ease: 'outExpo',
+      });
+    }
+
+    // Animación del título (con delay para que entre después de la imagen)
+    if (titleRef.current) {
+      const { chars } = splitText(titleRef.current, { words: false, chars: true });
+      animate(chars, {
+        y: [
+          { to: '-2.75rem', ease: 'outExpo', duration: 500 },
+          { to: 0, ease: 'outBounce', duration: 800, delay: 100 },
+        ],
+        rotate: {
+          from: '-1turn',
+          delay: 0,
+        },
+        delay: stagger(50, { start: 400 }),
+        ease: 'inOutCirc',
+        loopDelay: 2000,
+        loop: false,
+      });
+    }
   }, []);
 
   return (
     <main className="home">
-      <div className="home__image-col">
+      <div className="home__image-col" ref={imageColRef}>
         <img src="/students.png" alt="Estudiantes" className="home__students" />
       </div>
 
