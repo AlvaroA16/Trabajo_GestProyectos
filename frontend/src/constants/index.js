@@ -11,6 +11,17 @@ export const CAREER_FIELDS = {
   CIENCIAS_BASICAS: 'Ciencias Básicas',
 };
 
+export const FIELD_META = {
+  'Ingeniería y Tecnología':             { emoji: '⚙️',  short: 'Ingeniería',  color: '#3B82F6', bg: '#EFF6FF' },
+  'Ciencias de la Salud':               { emoji: '🩺',  short: 'Salud',        color: '#EF4444', bg: '#FEF2F2' },
+  'Ciencias Económicas y Empresariales':{ emoji: '📊',  short: 'Negocios',     color: '#F59E0B', bg: '#FFFBEB' },
+  'Derecho y Ciencias Políticas':       { emoji: '⚖️',  short: 'Derecho',      color: '#8B5CF6', bg: '#F5F3FF' },
+  'Humanidades y Educación':            { emoji: '📚',  short: 'Humanidades',  color: '#EC4899', bg: '#FDF2F8' },
+  'Ciencias Sociales':                  { emoji: '🌍',  short: 'Sociales',     color: '#10B981', bg: '#ECFDF5' },
+  'Arte y Diseño':                      { emoji: '🎨',  short: 'Arte & Diseño',color: '#F97316', bg: '#FFF7ED' },
+  'Ciencias Básicas':                   { emoji: '🔬',  short: 'Ciencia',      color: '#06B6D4', bg: '#ECFEFF' },
+};
+
 export const UNIVERSITY_TYPES = {
   PUBLICA: 'Pública',
   PRIVADA: 'Privada',

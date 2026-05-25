@@ -1,116 +1,103 @@
-.home__hero {
-  min-height: calc(100vh - 64px);
-  background: linear-gradient(
-    150deg,
-    #ffb3c1 0%,
-    #f9a8d4 15%,
-    #e879f9 35%,
-    #a78bfa 55%,
-    #60a5fa 75%,
-    #38bdf8 90%,
-    #67e8f9 100%
-  );
-  display: flex;
-  align-items: center;
-  padding: 4rem 2rem;
+.home {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: calc(100vh - 68px);
+  overflow: hidden;
 }
 
-.home__hero-content {
-  max-width: 640px;
-  margin: 0 auto;
+/* ── Columna izquierda: imagen ── */
+.home__image-col {
+  position: relative;
+  overflow: hidden;
+}
+
+.home__students {
+  position: absolute;
+  bottom: 0;
+  left: 75%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: auto;
+}
+
+/* ── Columna derecha: contenido ── */
+.home__content {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 4rem 4rem 4rem 3rem;
+  gap: 1.75rem;
 }
 
-/* Badge "Orientación vocacional" */
-.home__badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(6px);
-  color: #1e1e2e;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 0.4rem 0.9rem;
-  border-radius: 100px;
-  width: fit-content;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-/* Heading principal */
-.home__heading {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 800;
-  line-height: 1.15;
-  color: #1a1a2e;
+/* Título */
+.home__title {
+  font-size: clamp(2.5rem, 4vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--navy);
   margin: 0;
-  letter-spacing: -0.02em;
+  overflow: visible;
+  white-space: nowrap;
 }
 
-/* Palabra destacada: cursiva, serif, color amarillo/dorado */
-.home__heading-highlight {
-  font-style: italic;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-weight: 700;
-  color: #f59e0b;
-  font-size: 1.05em;
+.home__title-accent {
+  color: var(--orange);
 }
 
 /* Subtítulo */
 .home__subtitle {
-  font-size: 1rem;
-  line-height: 1.65;
-  color: #1a1a2e;
-  opacity: 0.8;
+  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+  line-height: 1.7;
+  color: #6B7280;
+  max-width: 100%;
   margin: 0;
-  max-width: 520px;
 }
 
-/* Fila CTA */
-.home__cta-row {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-}
-
-/* Botón principal oscuro */
-.home__cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: #1a1a2e;
-  color: #fff;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 0.85rem 1.75rem;
+/* Botón CTA */
+.home__cta {
+  padding: 1rem 2.5rem;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
   border-radius: 100px;
-  transition: transform 0.15s, box-shadow 0.15s;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+  box-shadow: 0 4px 18px rgba(28, 43, 74, 0.18);
 }
 
-.home__cta-btn:hover {
+.home__cta:hover {
+  background: #263456;
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 24px rgba(28, 43, 74, 0.24);
 }
 
-/* "5 min · 15 preguntas" */
-.home__cta-meta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.85rem;
-  color: #1a1a2e;
-  opacity: 0.75;
-  font-weight: 500;
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .home {
+    grid-template-columns: 1fr;
+    grid-template-rows: 50vh auto;
+    height: auto;
+    min-height: calc(100vh - 68px);
+  }
+
+  .home__content {
+    align-items: center;
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+
+  .home__title {
+    white-space: normal;
+  }
 }
 
-@media (max-width: 480px) {
-  .home__hero { padding: 3rem 1.25rem; }
-  .home__cta-row { flex-direction: column; align-items: flex-start; }
+@media (max-width: 540px) {
+  .home__cta {
+    width: 100%;
+  }
 }

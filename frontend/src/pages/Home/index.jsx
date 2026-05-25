@@ -1,41 +1,51 @@
-import { Link } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { animate, stagger, splitText } from 'animejs';
 import './Home.css';
 
 export default function Home() {
+  const navigate = useNavigate();
+  const titleRef = useRef(null);
+
+  useEffect(() => {
+    if (!titleRef.current) return;
+    const { chars } = splitText(titleRef.current, { words: false, chars: true });
+    animate(chars, {
+      y: [
+        { to: '-2.75rem', ease: 'outExpo', duration: 500 },
+        { to: 0, ease: 'outBounce', duration: 800, delay: 100 },
+      ],
+      rotate: {
+        from: '-1turn',
+        delay: 0,
+      },
+      delay: stagger(50),
+      ease: 'inOutCirc',
+      loopDelay: 2000,
+      loop: false,
+    });
+  }, []);
+
   return (
     <main className="home">
-      <section className="home__hero">
-        <div className="home__hero-content">
-          <span className="home__badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-            Orientación vocacional
-          </span>
+      <div className="home__image-col">
+        <img src="/students.png" alt="Estudiantes" className="home__students" />
+      </div>
 
-          <h1 className="home__heading">
-            ¿Qué vas a estudiar<br />
-            <em className="home__heading-highlight">cuando termines</em>{' '}
-            el cole?
-          </h1>
+      <section className="home__content">
+        <h1 className="home__title" ref={titleRef}>
+          Decide <span className="home__title-accent">hoy</span>.
+        </h1>
 
-          <p className="home__subtitle">
-            OrientaPerú es un test vocacional pensado para estudiantes de secundaria.
-            En 5 minutos descubres las carreras que mejor se adaptan a tu perfil.
-          </p>
+        <p className="home__subtitle">
+          Tu futuro comienza con una decisión inteligente. Descubre tus habilidades,
+          intereses y el camino profesional ideal para ti con una experiencia
+          vocacional moderna, rápida y personalizada.
+        </p>
 
-          <div className="home__cta-row">
-            <Link to="/survey" className="home__cta-btn">
-              Empezar test gratis <span aria-hidden="true">→</span>
-            </Link>
-            <span className="home__cta-meta">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-              </svg>
-              5 min · 15 preguntas
-            </span>
-          </div>
-        </div>
+        <button className="home__cta" onClick={() => navigate('/register')}>
+          Empezar test
+        </button>
       </section>
     </main>
   );
