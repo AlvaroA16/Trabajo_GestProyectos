@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { useSurvey } from '../../context/SurveyContext';
 import { useFetch } from '../../hooks/useFetch';
 import { getSurveyQuestions, submitSurveyResponses } from '../../services/surveyService';
@@ -9,7 +9,7 @@ import SurveyResult from './SurveyResult';
 import './Survey.css';
 
 export default function Survey() {
-  const { currentStep, setCurrentStep, answers, saveAnswer, sessionToken, setSessionToken, result, setResult, reset } = useSurvey();
+  const { currentStep, setCurrentStep, answers, saveAnswer, setSessionToken, result, setResult, reset } = useSurvey();
   const { data, loading, error } = useFetch(getSurveyQuestions, []);
 
   const questions = data?.questions || [];

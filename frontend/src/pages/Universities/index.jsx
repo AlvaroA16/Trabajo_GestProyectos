@@ -4,7 +4,6 @@ import { getUniversities } from '../../services/universitiesService';
 import UniversityCard from '../../components/universities/UniversityCard';
 import LoadingSpinner from '../../components/common/LoadingSpinner';
 import ErrorMessage from '../../components/common/ErrorMessage';
-import { PERU_REGIONS } from '../../constants';
 import './Universities.css';
 
 const TYPE_FILTERS = [

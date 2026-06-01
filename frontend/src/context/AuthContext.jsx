@@ -9,11 +9,12 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const stored = localStorage.getItem('user');
-    if (stored && token) {
+    const savedToken = localStorage.getItem('token');
+    if (stored && savedToken) {
       try { setUser(JSON.parse(stored)); } catch { logout(); }
     }
     setLoading(false);
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const saveSession = ({ token: t, user: u }) => {
     localStorage.setItem('token', t);
