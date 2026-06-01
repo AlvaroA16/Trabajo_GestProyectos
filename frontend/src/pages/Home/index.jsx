@@ -1,10 +1,12 @@
 import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { animate, stagger, splitText } from 'animejs';
+import { useAuth } from '../../context/AuthContext';
 import './Home.css';
 
 export default function Home() {
   const navigate = useNavigate();
+  const { user } = useAuth();
   const titleRef = useRef(null);
   const imageColRef = useRef(null);
 
@@ -56,7 +58,7 @@ export default function Home() {
           vocacional moderna, rápida y personalizada.
         </p>
 
-        <button className="home__cta" onClick={() => navigate('/register')}>
+        <button className="home__cta" onClick={() => navigate(user ? '/survey' : '/login')}>
           Empezar test
         </button>
       </section>

@@ -1,16 +1,15 @@
--- Tabla de carreras universitarias
 CREATE TABLE careers (
-    id              INT IDENTITY(1,1) PRIMARY KEY,
-    name            NVARCHAR(200)   NOT NULL,
-    description     NVARCHAR(MAX),
-    field           NVARCHAR(100)   NOT NULL,  -- Área de conocimiento
-    subfield        NVARCHAR(100),
-    duration_years  TINYINT         NOT NULL DEFAULT 5,
-    job_outlook     NVARCHAR(500),
-    avg_salary_min  INT,
-    avg_salary_max  INT,
-    created_at      DATETIME2       DEFAULT GETUTCDATE(),
-    updated_at      DATETIME2       DEFAULT GETUTCDATE()
+    id              SERIAL PRIMARY KEY,
+    name            VARCHAR(200)  NOT NULL,
+    description     TEXT,
+    field           VARCHAR(100)  NOT NULL,
+    subfield        VARCHAR(100),
+    duration_years  SMALLINT      NOT NULL DEFAULT 5,
+    job_outlook     VARCHAR(500),
+    avg_salary_min  INTEGER,
+    avg_salary_max  INTEGER,
+    created_at      TIMESTAMP     DEFAULT NOW(),
+    updated_at      TIMESTAMP     DEFAULT NOW()
 );
 
 CREATE INDEX idx_careers_field ON careers(field);

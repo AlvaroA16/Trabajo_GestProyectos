@@ -1,17 +1,16 @@
--- Tabla de universidades peruanas
 CREATE TABLE universities (
-    id                    INT IDENTITY(1,1) PRIMARY KEY,
-    name                  NVARCHAR(300)  NOT NULL,
-    acronym               NVARCHAR(20),
-    location_city         NVARCHAR(100)  NOT NULL,
-    location_region       NVARCHAR(100)  NOT NULL,
-    type                  NVARCHAR(20)   NOT NULL CHECK (type IN (N'Pública', N'Privada')),
-    website               NVARCHAR(300),
-    logo_url              NVARCHAR(500),
-    accreditation_status  NVARCHAR(200),
-    description           NVARCHAR(MAX),
-    created_at            DATETIME2      DEFAULT GETUTCDATE(),
-    updated_at            DATETIME2      DEFAULT GETUTCDATE()
+    id                    SERIAL PRIMARY KEY,
+    name                  VARCHAR(300)  NOT NULL,
+    acronym               VARCHAR(20),
+    location_city         VARCHAR(100)  NOT NULL,
+    location_region       VARCHAR(100)  NOT NULL,
+    type                  VARCHAR(20)   NOT NULL CHECK (type IN ('Pública', 'Privada')),
+    website               VARCHAR(300),
+    logo_url              VARCHAR(500),
+    accreditation_status  VARCHAR(200),
+    description           TEXT,
+    created_at            TIMESTAMP     DEFAULT NOW(),
+    updated_at            TIMESTAMP     DEFAULT NOW()
 );
 
 CREATE INDEX idx_universities_region ON universities(location_region);

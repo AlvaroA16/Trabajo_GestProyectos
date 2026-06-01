@@ -1,4 +1,5 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 import './Navbar.css';
 
 const NAV_LINKS = [
@@ -10,6 +11,14 @@ const NAV_LINKS = [
 ];
 
 export default function Navbar() {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
+
   return (
     <nav className="navbar">
       <Link to="/" className="navbar__brand">
@@ -35,8 +44,19 @@ export default function Navbar() {
       </ul>
 
       <div className="navbar__actions">
-        <Link to="/login" className="navbar__btn-outline">Entrar</Link>
-        <Link to="/register" className="navbar__btn-filled">Registrarse</Link>
+        {user ? (
+          <>
+            <span className="navbar__username">Hola, {user.full_name.split(' ')[0]}</span>
+            <button className="navbar__btn-outline" onClick={handleLogout}>
+              Salir
+            </button>
+          </>
+        ) : (
+          <>
+            <Link to="/login" className="navbar__btn-outline">Entrar</Link>
+            <Link to="/register" className="navbar__btn-filled">Registrarse</Link>
+          </>
+        )}
       </div>
     </nav>
   );

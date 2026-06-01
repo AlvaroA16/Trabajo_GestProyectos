@@ -1,12 +1,12 @@
 require('dotenv').config();
 const app = require('./src/config/app');
-const { getPool } = require('./src/config/database');
+const pool = require('./src/config/database');
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 
 async function start() {
-  await getPool();
-  console.log('Conexión a Azure SQL establecida');
+  await pool.query('SELECT 1');
+  console.log('Conexión a PostgreSQL (Supabase) establecida');
   app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
 }
 
