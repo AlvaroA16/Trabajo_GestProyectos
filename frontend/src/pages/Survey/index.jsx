@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useSurvey } from '../../context/SurveyContext';
 import { useFetch } from '../../hooks/useFetch';
 import { getSurveyQuestions, submitSurveyResponses } from '../../services/surveyService';
